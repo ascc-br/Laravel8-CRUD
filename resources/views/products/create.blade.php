@@ -27,15 +27,34 @@
 
             <br><br>
 
+            <label for="resizableTextarea" class="form-label">Descrição:</label>
+            <textarea class="form-control" name="description" id="resizableTextarea" rows="1" placeholder=""></textarea>
+
+            <br>
+
+            @if ($errors->any())
+
+                <div style="color:red">
+
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+
+                </div>
+
+            @endif
+
             <div class="row">
                 <div class="col-12 d-flex justify-content-between">
-                <a href="/products/" class="btn btn-sm border border-2 border-opacity-25">
-                    Voltar <i class="bi bi-list"></i><i class="bi bi-arrow-90deg-left"></i>
-                </a>
+                    <a href="/products/" class="btn btn-sm border border-2 border-opacity-25">
+                        Voltar <i class="bi bi-list"></i><i class="bi bi-arrow-90deg-left"></i>
+                    </a>
 
-                <button type="submit" class="btn btn-sm border border-2 border-opacity-25">
-                    Salvar
-                </button>
+                    <button type="submit" class="btn btn-sm border border-2 border-opacity-25">
+                        Salvar
+                    </button>
                 </div>
             </div>
 
