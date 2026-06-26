@@ -26,13 +26,7 @@ class ProductController extends Controller
     public function store(StoreProductRequest $request)
     {
 
-        $product = new Product();
-
-        $product->name = $request->name;
-        $product->price = $request->price;
-        $product->description = $request->description;
-
-        $product->save();
+        Product::create($request->validated());
 
         return redirect('/products');
     }
@@ -48,11 +42,7 @@ class ProductController extends Controller
         UpdateProductRequest $request,
         Product $product
     ) {
-        $product->name = $request->name;
-        $product->price = $request->price;
-        $product->description = $request->description;
-
-        $product->save();
+        $product->update($request->validated());
 
         return redirect('/products');
     }
